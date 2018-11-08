@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dist/css/modules/base.css">
+    <link rel="stylesheet" href="dist/css/modules/panel.css">
+    <link rel="stylesheet" href="dist/css/modules/table.css">
+    <link rel="stylesheet" href="dist/css/modules/button.css">
+    <link rel="stylesheet" href="dist/css/modules/form.css">
+    <link rel="stylesheet" href="dist/css/modules/layout.css">
+    <!-- <link href="https://cdn.bootcss.com/event-drops/1.3.0/style.css" rel="stylesheet"> -->
+    <link href="video-js/video-js.css" rel="stylesheet" type="text/css">
+    <!-- <script type="text/javascript" src="d3/d3.js"></script> -->
+    <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/event-drops/1.3.0/index.js"></script>
+    <script src="video-js/video.js"></script>
+</head>
+
+<body class="layui-layout-body">
+
+    <!--静态倾斜-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="tilt1" x1="0" y1="0%" x2="15%" y2="0%" gradientTransform="rotate(30)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#68ACEc" />
+            </linearGradient>
+        </defs>
+        <!-- <rect fill="url(#tilt1)" x="10" y="10" width="0" height="0" /> -->
+    </svg>
+    <!--动态倾斜-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="tilt2" x1="0" y1="0" x2="15%" y2="0%" gradientTransform="rotate(30)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#f36161" />
+            </linearGradient>
+        </defs>
+        <!-- <rect fill="url(#tilt2)" x="10" y="10" width="100" height="100" /> -->
+    </svg>
+    <!--静态静止-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="still1" x1="0%" y1="0" x2="100%" y2="0%" gradientTransform="rotate(0)" spreadMethod="repeat">
+                <stop offset="0%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="0%" stop-color="#68ACEc" />
+            </linearGradient>
+        </defs>
+        <!-- <rect fill="url(#still1)" x="10" y="10" width="100" height="100" /> -->
+    </svg>
+    <!--动态静止-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="still2" x1="0%" y1="0" x2="100%" y2="0%" gradientTransform="rotate(0)" spreadMethod="repeat">
+                <stop offset="0%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="0%" stop-color="#f36161" />
+            </linearGradient>
+        </defs>
+        <!-- <rect fill="url(#still2)" x="10" y="10" width="100" height="100" /> -->
+    </svg>
+    <!--静态跟踪-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="track1" x1="100%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(0)"
+                spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="0%" stop-color="#68ACEc" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#track1)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--动态跟踪-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="track2" x1="100%" y1="0" x2="100%" y2="100%" gradientTransform="rotate(0)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="0%" stop-color="#f36161" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#track2)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--静态扫视-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="glance1" x1="0%" y1="0" x2="10%" y2="0%" gradientTransform="rotate(90)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#68ACEc" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#glance1)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--动态扫视-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="glance2" x1="0%" y1="0" x2="10%" y2="0%" gradientTransform="rotate(90)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#f36161" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#glance2)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--静态升降-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="lift1" x1="0%" y1="0" x2="10%" y2="0%" gradientTransform="rotate(0)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#68ACEc" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#lift1)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--动态升降-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="lift2" x1="0%" y1="0" x2="10%" y2="0%" gradientTransform="rotate(0)" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#f36161" />
+            </linearGradient>
+        </defs>
+        <!--<rect fill="url(#lift2)" x="10" y="10" width="100" height="100" />-->
+    </svg>
+    <!--静态旋转-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg"> 
+        <defs>
+            <radialGradient id="rotate1" fx="50%" fy="50%" r="10%" spreadMethod="repeat">
+                <stop offset="20%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="30%" stop-color="#68ACEc" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#rotate1)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+    <!--动态旋转-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="rotate2" fx="50%" fy="50%" r="10%" spreadMethod="repeat">
+                <stop offset="20%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="30%" stop-color="#f36161" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#rotate2)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+    <!--静态推拉-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="pushPull1" fx="50%" fy="50%" r="80%" spreadMethod="repeat">
+                <stop offset="60%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="20%" stop-color="#68ACEc" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#pushPull1)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+    <!--动态推拉-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="pushPull2" fx="50%" fy="50%" r="80%" spreadMethod="repeat">
+                <stop offset="60%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="20%" stop-color="#f36161" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#pushPull2)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+    <!--静态变焦-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="zoom1" fx="20%" fy="70%" r="40%" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#68ACEc" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#zoom1)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+    <!--动态变焦-->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="zoom2" fx="30%" fy="70%" r="40%" spreadMethod="repeat">
+                <stop offset="50%" stop-color="grey" stop-opacity="0.2" />
+                <stop class="composition" offset="50%" stop-color="#f36161" />
+            </radialGradient>
+        </defs>
+        <!--<rect fill="url(#zoom2)" x="10" y="10" width="100" height="100" rx="0" ry="0"/>-->
+    </svg>
+
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">layui 后台布局</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">控制台</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">用户</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">邮件管理</a></dd>
+                        <dd><a href="">消息管理</a></dd>
+                        <dd><a href="">授权管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        贤心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退了</a></li>
+                <button type="button" id="btn" onClick="javascript:load_home();">确认</button>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">所有商品</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="javascript:;">列表三</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+                </ul>
+            </div>
+
+            <div class="select">
+
+            </div>
+
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <div class="layui-card">
+                    <div class="layui-card-header">卡片面板</div>
+                    <div class="layui-card-body" id="viewDiv">
+                        <div class="videoContainer">
+                                    <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="300" height="300" data-setup="{}">
+                            
+                                        <source id="sourceBox" src="七宗罪.mp4" type='video/mp4'>
+                                        <p class="vjs-no-js">不支持播放</p>
+                            
+                                    </video>
+                            
+                                </div>
+                        <div class="axis">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="layui-card" id="detail">
+                    <div class="layui-card-header">卡片面板</div>
+                    <div class="layui-card-body">
+                        <div id="chart">
+                            <svg class="detailContainer">
+                                <rect class="detail" y="0"></rect>
+                            </svg>
+                        </div>
+                        <table class="layui-table" lay-skin="nob" lay-even>
+                            <colgroup>
+                                <col width="130">
+                                <col width="100">
+                                <col>
+                            </colgroup>
+
+                            <tbody>
+                                <tr>
+                                    <td>镜头时长</td>
+                                    <td class="time"></td>
+                                </tr>
+                                <tr>
+                                    <td>镜头长短</td>
+                                    <td class="length"></td>
+                                </tr>
+                                <tr>
+                                    <td>影视构图方式</td>
+                                    <td class="composition"></td>
+                                </tr>
+                                <tr>
+                                    <td>摄像机运动方式</td>
+                                    <td class="movement"></td>
+                                </tr>
+                                <tr>
+                                    <td>拍摄角度</td>
+                                    <td class="angle"></td>
+                                </tr>
+                                <tr>
+                                    <td>景距</td>
+                                    <td class="scene"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="layui-input-block"></div>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn" id="add" value="远景" title="远景">远景</button>
+                            <button class="layui-btn" id="add" value="全景" title="全景">全景</button>
+                            <button class="layui-btn" id="add" value="中景" title="中景">中景</button>
+                            <button class="layui-btn" id="add" value="半身" title="半身">半身景</button>
+                            <button class="layui-btn" id="add" value="近景" title="近景">近景</button>
+                            <button class="layui-btn" id="add" value="特写" title="特写">特写</button>
+                        </div>
+                        <div class="layui-input-block"> </div>
+                        <button class="layui-btn" id="delete" data-method="delInput">删除</button>
+                        <button class="layui-btn" id="submit">确认</button>
+                        <button class="layui-btn" id="reset">重置</button>
+                        <div class="layui-input-block"> </div>
+                        <div class="layui-inline"  id="clonerow">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="layui-card" id="check">
+                    <div class="layui-card-header">校对</div>
+                    <div class="layui-card-body">
+                        <table class="layui-table" lay-skin="line">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+
+                            <form class="layui-form" action="">
+
+                                <tbody>
+                                    <tr>
+                                        <td>镜头长短</td>
+
+                                        <td>
+                                            <input id="long" type="radio" name="group1" value="长镜头" title="长镜头">长镜头
+                                            <input id="short" type="radio" name="group1" value="短镜头" title="短镜头">短镜头
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>影视构图方式</td>
+
+                                        <td>
+                                            <input id="dynCom" type="radio" name="group2" value="动态构图" title="动态构图">动态构图
+                                            <input id="staCom" type="radio" name="group2" value="静态构图" title="静态构图">静态构图
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>拍摄角度</td>
+                                        <td>
+                                            <input type="radio" name="group3" value="平" title="平">平
+                                            <input type="radio" name="group3" value="仰" title="仰">仰
+                                            <input type="radio" name="group3" value="俯" title="俯">俯
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>景距</td>
+                                        <td>
+                                            <input type="radio" name="group4" value="远景" title="远景">远景
+                                            <input type="radio" name="group4" value="全景" title="全景">全景
+                                            <input type="radio" name="group4" value="中景" title="中景">中景
+                                            <input type="radio" name="group4" value="半身景" title="半身景">半身景
+                                            <input type="radio" name="group4" value="近景" title="近景">近景
+                                            <input type="radio" name="group4" value="特写" title="特写">特写
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>摄像机运动方式</td>
+                                        <td>
+                                            <input type="radio" name="group5" value="倾斜" title="倾斜">倾斜
+                                            <input type="radio" name="group5" value="静止" title="静止">静止
+                                            <input type="radio" name="group5" value="跟踪" title="跟踪">跟踪
+                                            <input type="radio" name="group5" value="扫视" title="扫视">扫视
+                                            <input type="radio" name="group5" value="升降" title="升降">升降
+                                            <input type="radio" name="group5" value="旋转" title="旋转">旋转
+                                            <input type="radio" name="group5" value="推拉" title="推拉">推拉
+                                            <input type="radio" name="group5" value="变焦" title="变焦">变焦
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">校对</button>
+
+                            </form>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="layui-card">
+                    <div class="layui-card-header">分类查看</div>
+                    <div class="layui-card-body">
+                                <form class="layui-form" autocomplete="off">
+                                        <div class="layui-form-item">
+                                                <div class="layui-input-block"></div>
+                                                        <input method="post" type="checkbox" name="g1" value="changjingtou" title="长镜头" lay-filter="fenlei" checked >
+                                                        <input type="checkbox" name="g1" value="duanjingtou" title="短镜头" lay-filter="fenlei" checked>
+                                                
+                                                <div class="layui-input-block"></div>
+                                                            <input type="checkbox" name="g2" value="donggou" title="动态构图" lay-filter="fenlei" checked>
+                                                            <input type="checkbox" name="g2" value="jinggou" title="静态构图" lay-filter="fenlei" checked>
+                                                
+                                                <div class="layui-input-block"> </div>
+                                                        <input type="checkbox" name="g3" value="ping" title="平拍" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g3" value="yang" title="仰拍" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g3" value="fu" title="俯拍" lay-filter="fenlei" checked>
+                                               
+                                                <div class="layui-input-block"> </div>
+                                                        <input type="checkbox" name="g4" value="yuan" title="远景" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g4" value="quan" title="全景" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g4" value="zhong" title="中景" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g4" value="banshen" title="半身景" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g4" value="jin" title="近景" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g4" value="te" title="特写" lay-filter="fenlei" checked>
+                                                  
+                                                <div class="layui-input-block"> </div>
+                                                        <input method="post" type="checkbox" name="g5" value="qingxie" title="倾斜" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="jingzhi" title="静止" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="genzong" title="跟踪" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="saoshi" title="扫视" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="shengjiang" title="升降" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="xuanzhuan" title="旋转" lay-filter="fenlei" checked>
+                                                <div class="layui-input-block"> </div>        
+                                                        <input type="checkbox" name="g5" value="tuila" title="推拉" lay-filter="fenlei" checked>
+                                                        <input type="checkbox" name="g5" value="bianjiao" title="变焦" lay-filter="fenlei" checked>
+                                         
+                                        </div>
+                                                                        
+                                    </form>                        
+                                        
+                                                   
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <script src="layui/layui.js"></script>
+    
+    <script type="text/javascript" src="axisV4.js"></script>
+
+
+
+    <script>
+
+
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element;
+
+        });
+        var myPlayer = videojs('my_video_1');
+    videojs("my_video_1").ready(function () {
+        var myPlayer = this;
+    });
+    myPlayer.on('timeupdate', function () {
+        var whereYouAt = myPlayer.currentTime();//获取播放进度：
+        var frameNow = whereYouAt*24;
+    console.log(whereYouAt);
+    console.log(frameNow);
+    });
+        myPlayer.on('play', function() {
+//        $(".svgContainer").animate({ left: "-=7313px" }, 7313000,"linear");
+        console.log('开始/恢复播放');
+    });
+    // 暂停播放
+    myPlayer.on('pause', function() {
+//        $(".svgContainer").stop();
+        console.log('暂停播放');
+    });
+    
+ 
+console.log("eee");
+    </script>
+</body>
+
+</html>

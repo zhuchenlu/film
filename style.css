@@ -1,0 +1,145 @@
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ .layui-header {
+     /* background-color: burlywood; */
+     margin-top: -16px;
+ }
+
+ #viewDiv {
+     /* background-color: cadetblue; */
+     /* position: relative; */
+     /* z-index: 1; */
+     /* height: 500px; */
+     height: 700px;
+ }
+
+ .detail {
+     background-color: chocolate;
+ }
+
+ /* body{
+        float: left;
+    } */
+
+ .axis path, .axis line {
+     fill: none;
+     stroke: grey;
+     shape-rendering: crispEdges;
+ }
+
+ .axis text {
+     font-family: sans-serif;
+     font-size: 11px;
+ }
+
+ #chart {
+     margin-top: -100px;
+     /*float: left; */
+     /* background-color: blueviolet; */
+     /* z-index: 2; */
+     /* position: fixed; */
+ }
+
+ /* .tooltip{
+         float: left;
+         position: relative;
+         font-size:14px;
+         font-family: "Microsoft YaHei UI";
+         margin-right: 10px;
+     } */
+
+ .detail {
+     float: left;
+     /* background-color: aqua; */
+     position: absolute;
+ }
+
+ .svgContainer{
+     /* background-color: brown; */
+     /* margin-left: 215px; */
+     margin-top:16px;
+ }
+
+ .layui-body{
+     background-color: aliceblue;
+ }
+
+ .layui-card{
+     /* background-color: bisque; */
+ }
+ .layui-card-body{
+     /* background-color: blueviolet; */
+   
+ }
+
+ #detail{
+     width: 34%;
+     height: auto;
+     /* float:left; */
+ }
+#chart{
+    text-align: center;
+}
+ .detailContainer{
+     /* background-color: aquamarine; */
+     margin-top: 110px;
+     text-align: center;
+     height:204px;
+     /* margin-left: 50%; */
+ }
+
+ .layui-table{
+     margin:10px;
+ }
+
+ #check{
+     /* float: left; */
+     width: 50%;
+ }
+
+#my_video_1{
+margin-top:-50px;
+}
+
+.videoContainer{
+    /* position: relative; */
+    /* background-color: aqua; */
+}
+
+.selection{
+    height:80px;
+}
+
+.rect{
+    background-color: aqua;
+    width:1000px;
+    height:200px;
+    overflow: hidden;
+}
+
+#clip{
+    background-color: blue;
+    display: block;
+}
+.zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
+  }
+
+.brush{
+    /* pointer-events:none; */
+}
+
+
+.my_video_1-dimensions {
+    width: 600px;
+    height: 360px;
+  }
+
+.overlay{
+    height:100px;
+}
